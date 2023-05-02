@@ -14,7 +14,7 @@ const Home = () => {
       try {
         const { data: user } = await axios.get("https://api.github.com/user", {
           headers: {
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
+            Authorization: `Bearer ${'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'}`,
           },
         });
 
@@ -22,7 +22,7 @@ const Home = () => {
           "https://api.github.com/user/repos",
           {
             headers: {
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
+              Authorization: `Bearer ${'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'}`,
             },
           }
         );
