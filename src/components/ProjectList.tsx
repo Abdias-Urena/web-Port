@@ -1,34 +1,19 @@
-"use client";
+"use client"
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
 import Image from "next/image";
 
-const Home = () => {
-  const [user, setUser] = useState<any>(null); 
-  const [repos, setRepos] = useState<any[]>([]);
+const ProjectsList = () => {
+  const [repos, setRepo] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data: user } = await axios.get("https://api.github.com/user", {
-          headers: {
-            Authorization: `Bearer ${'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'}`,
-          },
-        });
-
-        const { data: repos } = await axios.get(
-          "https://api.github.com/user/repos",
-          {
-            headers: {
-              Authorization: `Bearer ${'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'}`,
-            },
-          }
+        const { data } = await axios.get(
+          "https://api.github.com/users/Abdias-Urena/repos"
         );
-
-        setUser(user);
-        setRepos(repos);
+        setRepo(data);
       } catch (error) {
         console.error(error);
       }
@@ -40,12 +25,7 @@ const Home = () => {
   return (
     <div className="container my-5" id="projects">
       {repos.length > 0 && (
-        <motion.div
-          className="mt-5"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
+        <div className="mt-5">
           <Carousel>
             {repos.map((repo: any) => (
               <Carousel.Item key={repo.id}>
@@ -65,10 +45,10 @@ const Home = () => {
               </Carousel.Item>
             ))}
           </Carousel>
-        </motion.div>
+        </div>
       )}
     </div>
   );
 };
 
-export default Home;
+export default ProjectsList;
