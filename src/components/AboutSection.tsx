@@ -12,15 +12,16 @@ const AboutSection = () => {
             alt=""
             width={325}
             height={325}
-            className="rounded-full shadow-2xl"
+            style={{ borderRadius: "50%" }}
           />
         </Col>
         <Col md={8}>
-          <h2>Hola, soy Abdias Ureña Soto</h2>
+          <h2>Hi, Im Abdias Ureña Soto.</h2>
           <p>
-            Soy estudiante de la Universidad Nacional, curso la carrera de
-            Ingenieria en Sistemas de Información 5 semestre, tengo destrezas en lenguajes de programación como: <br/>
-            Javascript, python, c++, java, react, Bootstrap entre otros.
+            I am a student at Universidad Nacional Costa Rica, I am studying Information
+            Systems Engineering 5 semester, I have skills in programming
+            languages ​​such as: <br />
+            Javascript, python, c++, java, react, Bootstrap among others.
           </p>
           <Button
             variant="primary"
